@@ -319,7 +319,7 @@ namespace G_Rewind.classes
                     if (currentGCommand == lastGCommand && currentFeedRateCommand != null && currentFeedRateCommand == lastFeedRateCommand)
                     {
                         // Remove the redundant feed rate command from the line
-                        line = Regex.Replace(line, @"\s*F\d+", "").Trim();
+                        line = Regex.Replace(line, @"\s*F-?\d+(\.\d+)?", "").Trim();
                         motionBlock[i] = line; // Update the line in the list after removing the redundant F command
                     }
                     else
@@ -386,9 +386,10 @@ namespace G_Rewind.classes
         }
         private string ExtractFCommand(string line)
         {
-            var match = Regex.Match(line, @"F\d+");
+            var match = Regex.Match(line, @"F-?\d+(\.\d+)?");
             return match.Success ? match.Value : null;
         }
+
         private string ExtractZCommand(string line)
         {
             var match = Regex.Match(line, @"Z-?\d+(\.\d+)?");
