@@ -19,9 +19,4 @@
 		<MakeDir Directories="$(OutputPath)g-codes\output" />
 	</Target>
 
-	<!-- Copy config.json only if it does not exist -->
-	<Target Name="CopyConfigIfNotExists" BeforeTargets="Build">
-		<Copy SourceFiles="config\config.json" DestinationFolder="$(OutputPath)config" Condition="!Exists('$(OutputPath)config\config.json')" />
-	</Target>
-
 </Project>
