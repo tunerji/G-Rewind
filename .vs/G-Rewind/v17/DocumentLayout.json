@@ -1,12 +1,71 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\serka\\Desktop\\PROJECTS\\SLICER\\G-Rewind1 - Copy\\G-Rewind\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\serka\\Desktop\\PROJECTS\\SLICER\\G-Rewind\\G-Rewind\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C69A42AE-B528-465C-9842-5AB41CB59F1C}|G-Rewind.csproj|c:\\users\\serka\\desktop\\projects\\slicer\\g-rewind\\g-rewind\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C69A42AE-B528-465C-9842-5AB41CB59F1C}|G-Rewind.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C69A42AE-B528-465C-9842-5AB41CB59F1C}|G-Rewind.csproj|c:\\users\\serka\\desktop\\projects\\slicer\\g-rewind\\g-rewind\\classes\\grewindprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C69A42AE-B528-465C-9842-5AB41CB59F1C}|G-Rewind.csproj|solutionrelative:classes\\grewindprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C69A42AE-B528-465C-9842-5AB41CB59F1C}|G-Rewind.csproj|c:\\users\\serka\\desktop\\projects\\slicer\\g-rewind\\g-rewind\\classes\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C69A42AE-B528-465C-9842-5AB41CB59F1C}|G-Rewind.csproj|solutionrelative:classes\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\serka\\Desktop\\PROJECTS\\SLICER\\G-Rewind\\G-Rewind\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\serka\\Desktop\\PROJECTS\\SLICER\\G-Rewind\\G-Rewind\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-31T17:28:46.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GRewindProcessor.cs",
+              "DocumentMoniker": "C:\\Users\\serka\\Desktop\\PROJECTS\\SLICER\\G-Rewind\\G-Rewind\\classes\\GRewindProcessor.cs",
+              "RelativeDocumentMoniker": "classes\\GRewindProcessor.cs",
+              "ToolTip": "C:\\Users\\serka\\Desktop\\PROJECTS\\SLICER\\G-Rewind\\G-Rewind\\classes\\GRewindProcessor.cs",
+              "RelativeToolTip": "classes\\GRewindProcessor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-31T17:28:45.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Config.cs",
+              "DocumentMoniker": "C:\\Users\\serka\\Desktop\\PROJECTS\\SLICER\\G-Rewind\\G-Rewind\\classes\\Config.cs",
+              "RelativeDocumentMoniker": "classes\\Config.cs",
+              "ToolTip": "C:\\Users\\serka\\Desktop\\PROJECTS\\SLICER\\G-Rewind\\G-Rewind\\classes\\Config.cs",
+              "RelativeToolTip": "classes\\Config.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-31T17:28:44.585Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
