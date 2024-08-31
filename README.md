@@ -20,7 +20,7 @@
 
 ### Prerequisites
 
-- .NET 6.0 or higher
+- .NET 8.0 or higher
 - Basic knowledge of G-code
 
 ### Cloning the Repository
@@ -51,7 +51,7 @@ Once built, the tool can be executed from the command line or by running the gen
 ## G-Code Overview
 
 G-code is the language used to instruct 3D printers and CNC machines. Each line of G-code consists of commands that move the machine's axes, control feed rates, and manage other functions. Below is a brief explanation of common G-code commands:
-
+The G-code used in for tests generated using Cura Slicer.
 ### Common G-Code Commands
 
 - **G0/G1:** Linear move. G0 is a rapid move, and G1 is a controlled move at a specified feed rate.
@@ -81,6 +81,93 @@ G0 F4000 X0.00 Y0.00 Z1.25  ; Rapid move to previous coordinates
 G1 F1500 X476.314 Y275 Z1.25; Controlled move to previous position
 G1 X0.00 Y-550 Z1.25        ; Reverse move to the starting coordinates
 ```
+
+
+# G-Rewind
+
+## G-Code Reversal and Optimization Tool
+
+G-Rewind is a specialized tool designed for reversing G-code files, reorganizing feed rates, and optimizing Z parameters to simulate reverse 3D printing. The tool is capable of removing redundant commands, optimizing machine movements, and ensuring the integrity of reversed operations, making it ideal for reverse motion simulations and G-code optimization.
+
+## Directory Structure
+
+The following directory structure is used for the project:
+
+project-root/
+│
+├── config/
+│   └── config.json
+│
+└── g-codes/
+    ├── input/
+    ├── output/
+    └── resume/
+
+### Explanation:
+
+- **config/**: Contains the `config.json` file where you can configure parameters such as Safe Z offset, User-Defined Top and Bottom Z limits, and other machine-specific settings.
+  
+- **g-codes/**:
+  - **input/**: Place your G-code files here before processing.
+  - **output/**: The processed and reversed G-code files will be saved here.
+  - **resume/**: This directory can be used for storing intermediary or resumed G-code states if required.
+
+## Process Overview
+
+G-Rewind processes G-code files through the following steps:
+
+1. **Reading the G-Code File**:
+   - The tool reads the input G-code file from the `g-codes/input/` directory.
+
+2. **Identifying and Splitting the File**:
+   - The G-code is divided into three main blocks: the start block, motion block, and end block.
+   - The motion block is where the actual movement commands (G0, G1, etc.) reside.
+
+3. **Trimming Motion Blocks**:
+   - The tool trims the motion block to remove any commands outside the user-defined Z limits. This ensures that only the relevant portions of the G-code are processed.
+
+4. **Reversing the Motion Block**:
+   - The motion block is reversed to simulate the reverse motion of the original G-code. This is essential for reverse simulations where the motion needs to be played back in the opposite direction.
+
+5. **Tagging**:
+   - Each line in the reversed motion block is tagged with appropriate Z and F values. This ensures that the reversed G-code maintains proper order and structure.
+
+6. **Removing Redundant Tags**:
+   - The tool removes redundant F and Z commands to streamline the G-code, ensuring that the machine performs only the necessary movements.
+
+7. **Tweaks and Final Adjustments**:
+   - Additional tweaks are applied, such as inserting a safe Z command before the motion block starts. This ensures the machine moves to a safe height before starting the reversed motion.
+
+8. **Saving the Output**:
+   - The processed G-code is saved in the `g-codes/output/` directory. The file is optimized for reverse motion simulations and ready for use.
+
+## Configuration
+
+G-Rewind uses a `config.json` file located in the `config/` directory to configure various parameters:
+
+```json
+{
+  "SafeZOffset": 10.0,
+  "UserDefinedTopZ": 200.0,
+  "UserDefinedBottomZ": 0.0,
+  "MachineMaxZ": 200.0,
+  "MachineMinZ": 0.0,
+  "MotionCommands": [
+    "G0",
+    "G1"
+  ],
+  "CoordinateCommands": [
+    "X",
+    "Y",
+    "Z"
+  ],
+  "FeedRateCommands": [
+    "F"
+  ]
+}
+
+
+
 
 ## License
 
