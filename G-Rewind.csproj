@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<RootNamespace>G_Rewind</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+	<!-- Ensure directories are created during build -->
+	<Target Name="EnsureDirectoriesExist" BeforeTargets="Build">
+		<MakeDir Directories="$(OutputPath)g-codes\input" />
+		<MakeDir Directories="$(OutputPath)g-codes\resume" />
+		<MakeDir Directories="$(OutputPath)g-codes\output" />
+	</Target>
+
+	<!-- Copy config.json only if it does not exist -->
+	<Target Name="CopyConfigIfNotExists" BeforeTargets="Build">
+		<Copy SourceFiles="config\config.json" DestinationFolder="$(OutputPath)config" Condition="!Exists('$(OutputPath)config\config.json')" />
+	</Target>
+
+</Project>

@@ -66,8 +66,8 @@ The G-code used in for tests generated using Cura Slicer.
 
 ```gcode
 G1 F1500 X0.00 Y-550 Z1.25  ; Move to coordinates with feed rate of 1500
-G0 F4000 X0.00 Y0.00 Z1.25  ; Rapid move to new coordinates
-G1 X476.314 Y275 Z1.25      ; Controlled move to new coordinates
+G0 F4000 X0.00 Y0.00   ; Rapid move to new coordinates
+G1 F1200 X476.314 Y275      ; Controlled move to new coordinates
 G1 X0.00 Y0.00              ; Move back to start point
 ```
 
@@ -77,9 +77,9 @@ After processing with G-Rewind, the G-code might look like this:
 
 ```gcode
 G1 X0.00 Y0.00 Z1.25        ; Move back to start point
-G0 F4000 X0.00 Y0.00 Z1.25  ; Rapid move to previous coordinates
-G1 F1500 X476.314 Y275 Z1.25; Controlled move to previous position
-G1 X0.00 Y-550 Z1.25        ; Reverse move to the starting coordinates
+G0 F4000 X0.00 Y0.00   ; Rapid move to previous coordinates
+G1 F1500 X476.314 Y275 ; Controlled move to previous position
+G1 X0.00 Y-550         ; Reverse move to the starting coordinates
 ```
 
 
@@ -130,7 +130,7 @@ G-Rewind processes G-code files through the following steps:
    - The motion block is reversed to simulate the reverse motion of the original G-code. This is essential for reverse simulations where the motion needs to be played back in the opposite direction.
 
 5. **Tagging**:
-   - Each line in the reversed motion block is tagged with appropriate Z and F values. This ensures that the reversed G-code maintains proper order and structure.
+   - Each line in the reversed motion block is tagged with appropriate Z and F values which are belongs to the blocks. This ensures that the reversed G-code maintains proper order and structure.
 
 6. **Removing Redundant Tags**:
    - The tool removes redundant F and Z commands to streamline the G-code, ensuring that the machine performs only the necessary movements.
